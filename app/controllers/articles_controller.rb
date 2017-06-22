@@ -6,6 +6,8 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def new
@@ -17,7 +19,7 @@ class ArticlesController < ApplicationController
     @article.save
 
     flash.notice = "Article '#{@article.title}' created."
-    
+
     redirect_to article_path(@article)
   end
 
