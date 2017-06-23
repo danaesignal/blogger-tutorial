@@ -1,6 +1,14 @@
 <h1><%= @article.title %></h1>
+<p>
+  <div style="font-size: .90em;">Tags:
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+    <% end %>
+  </div>
+  <br />
+</p>
 <p><%= @article.body %></p>
-
+<br />
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
 <%= render partial: 'articles/comments/form' %>
