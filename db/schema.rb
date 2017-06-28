@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170627220526) do
+ActiveRecord::Schema.define(version: 20170628203130) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20170627220526) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.index ["article_id"], name: "index_attachments_on_article_id"
+  end
+
+  create_table "authors", force: :cascade do |t|
+    t.string "username"
+    t.string "email", null: false
+    t.string "crypted_password"
+    t.string "salt"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_authors_on_email", unique: true
   end
 
   create_table "comments", force: :cascade do |t|
