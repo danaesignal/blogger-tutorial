@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem "paperclip"
-gem "sorcery"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'

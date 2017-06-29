@@ -10,6 +10,4 @@
 <br />
 <p><%= link_to "View Articles List", articles_path %></p>
 <p><%= link_to "View Tag List", tags_path %></p>
-<% if logged_in? %>
 <%= link_to "Delete", tag_path(@tag), data: {confirm: "Are you sure? This is irreversible!"}, method: :delete %>
-<% end %>

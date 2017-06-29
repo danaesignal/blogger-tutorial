@@ -1,13 +1,5 @@
 class ArticlesController < ApplicationController
   include ArticlesHelper
-  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
-  def require_login
-    unless current_user
-      redirect_to root_path
-      return false
-    end
-  end
-
   def index
     @articles = Article.all
   end
